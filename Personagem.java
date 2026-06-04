@@ -1,6 +1,6 @@
 package Rpg;
 
-public abstract class Raça{
+public class Personagem{
 
     protected String nome;
     protected int deslocamento;
@@ -10,7 +10,7 @@ public abstract class Raça{
     protected int idade;
     protected int altura;
 
-    public Raça(String nome, int deslocamento, int cd, int pv, int pm,
+    public Personagem(String nome, int deslocamento, int cd, int pv, int pm,
                     int idade, int altura){
         this.nome = nome;
         this.deslocamento = deslocamento;
@@ -75,5 +75,35 @@ public abstract class Raça{
 
     public void setAltura(int altura) {
         this.altura = altura;
+    }
+
+}
+
+class Atributos{
+
+    protected int pontosDeAtributos = 20;
+    protected int[] atributos = new int[6];
+
+    public int[] getAtributos() {
+        return atributos;
+    }
+
+    public void setAtributos(int[] atributos) {
+        this.atributos = atributos;
+    }
+
+    public void atributosHumano(){
+        this.pontosDeAtributos += 2;
+    }
+    public void atributosElfo(){
+        this.atributos[4] += 4;
+        this.atributos[1] += 2;
+        this.atributos[2] -= 2;
+    }
+
+    public void atributosAnao(){
+        this.atributos[2] += 4;
+        this.atributos[3] += 2;
+        this.atributos[1] -= 2;
     }
 }
