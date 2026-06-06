@@ -1,32 +1,36 @@
 package Rpg;
 
-public class Personagem{
+public class Personagem {
 
-    protected String nome;
+    protected String raça;
     protected int deslocamento;
     protected int cd;
     protected int pv;
     protected int pm;
-    protected int idade;
-    protected int altura;
+    protected int pontosDeAtributos = 20;
+    protected int força;
+    protected int destreza;
+    protected int constituição;
+    protected int sabedoria;
+    protected int inteligência;
+    protected int carisma;
 
-    public Personagem(String nome, int deslocamento, int cd, int pv, int pm,
-                    int idade, int altura){
-        this.nome = nome;
+    public Personagem(String nome, int deslocamento, int cd, int pv, int pm) {
+        this.raça = raça;
         this.deslocamento = deslocamento;
         this.cd = cd;
         this.pv = pv;
         this.pm = pm;
-        this.idade = idade;
-        this.altura = altura;
     }
 
+    public Personagem() {}
+
     public String getNome() {
-        return nome;
+        return raça;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.raça = nome;
     }
 
     public int getDeslocamento() {
@@ -61,49 +65,75 @@ public class Personagem{
         this.pm = pm;
     }
 
-    public int getIdade() {
-        return idade;
+    public int getPontosDeAtributos() {
+        return pontosDeAtributos;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setPontosDeAtributos(int pontosDeAtributos) {
+        this.pontosDeAtributos = pontosDeAtributos;
     }
 
-    public int getAltura() {
-        return altura;
+    public int getForça() {
+        return força;
     }
 
-    public void setAltura(int altura) {
-        this.altura = altura;
+    public void setForça(int força) {
+        this.força = força;
     }
 
-}
-
-class Atributos{
-
-    protected int pontosDeAtributos = 20;
-    protected int[] atributos = new int[6];
-
-    public int[] getAtributos() {
-        return atributos;
+    public int getDestreza() {
+        return destreza;
     }
 
-    public void setAtributos(int[] atributos) {
-        this.atributos = atributos;
+    public void setDestreza(int destreza) {
+        this.destreza = destreza;
     }
 
-    public void atributosHumano(){
+    public int getConstituição() {
+        return constituição;
+    }
+
+    public void setConstituição(int constituição) {
+        this.constituição = constituição;
+    }
+
+    public int getSabedoria() {
+        return sabedoria;
+    }
+
+    public void setSabedoria(int sabedoria) {
+        this.sabedoria = sabedoria;
+    }
+
+    public int getInteligência() {
+        return inteligência;
+    }
+
+    public void setInteligência(int inteligência) {
+        this.inteligência = inteligência;
+    }
+
+    public int getCarisma() {
+        return carisma;
+    }
+
+    public void setCarisma(int carisma) {
+        this.carisma = carisma;
+    }
+
+    public void atributosHumano() {
         this.pontosDeAtributos += 2;
     }
-    public void atributosElfo(){
-        this.atributos[4] += 4;
-        this.atributos[1] += 2;
-        this.atributos[2] -= 2;
+
+    public void atributosElfo() {
+        this.inteligência += 4;
+        this.destreza += 2;
+        this.constituição -= 2;
     }
 
-    public void atributosAnao(){
-        this.atributos[2] += 4;
-        this.atributos[3] += 2;
-        this.atributos[1] -= 2;
+    public void atributosAnao() {
+        this.constituição += 4;
+        this.sabedoria += 2;
+        this.destreza -= 2;
     }
 }
