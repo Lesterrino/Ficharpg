@@ -5,8 +5,8 @@ public class Personagem {
     protected String raça;
     protected int deslocamento;
     protected int cd;
-    protected int pv;
-    protected int pm;
+    protected int vidaPontos;
+    protected int magiaPontos;
     protected int pontosDeAtributos = 20;
     protected int força;
     protected int destreza;
@@ -15,21 +15,21 @@ public class Personagem {
     protected int inteligência;
     protected int carisma;
 
-    public Personagem(String nome, int deslocamento, int cd, int pv, int pm) {
+    public Personagem(String raça, int deslocamento, int cd, int pv, int pm) {
         this.raça = raça;
         this.deslocamento = deslocamento;
         this.cd = cd;
-        this.pv = pv;
-        this.pm = pm;
+        this.vidaPontos = pv;
+        this.magiaPontos = pm;
     }
 
     public Personagem() {}
 
-    public String getNome() {
+    public String getRaça() {
         return raça;
     }
 
-    public void setNome(String nome) {
+    public void setRaça(String nome) {
         this.raça = nome;
     }
 
@@ -50,19 +50,19 @@ public class Personagem {
     }
 
     public int getPv() {
-        return pv;
+        return vidaPontos;
     }
 
     public void setPv(int pv) {
-        this.pv = pv;
+        this.vidaPontos = pv;
     }
 
     public int getPm() {
-        return pm;
+        return magiaPontos;
     }
 
     public void setPm(int pm) {
-        this.pm = pm;
+        this.magiaPontos = pm;
     }
 
     public int getPontosDeAtributos() {

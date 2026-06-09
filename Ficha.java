@@ -47,5 +47,7 @@ public class Ficha {
 
     System.out.println("Seu personagem é um... " + raça);
 
+
+
     }
 }
