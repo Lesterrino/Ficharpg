@@ -4,6 +4,8 @@ import org.w3c.dom.ls.LSOutput;
 
 public class Classe extends Personagem {
 
+    protected int vidaPontos;
+    protected int magiaPontos;
     protected int modForça = Math.floorDiv(força -10, 2);
     protected int modDestreza = Math.floorDiv(destreza -10, 2);
     protected int modConstituição = Math.floorDiv(constituição -10, 2);
@@ -11,6 +13,22 @@ public class Classe extends Personagem {
     protected int modInteligencia = Math.floorDiv(inteligência -10, 2);
     protected int modCarisma = Math.floorDiv(carisma -10, 2);
     protected int periciasEspaços;
+
+    public int getVidaPontos() {
+        return vidaPontos;
+    }
+
+    public void setVidaPontos(int vidaPontos) {
+        this.vidaPontos = vidaPontos;
+    }
+
+    public int getMagiaPontos() {
+        return magiaPontos;
+    }
+
+    public void setMagiaPontos(int magiaPontos) {
+        this.magiaPontos = magiaPontos;
+    }
 
     public int getModForça() {
         return modForça;
@@ -89,4 +107,16 @@ public class Classe extends Personagem {
         magiaPontos = 4;
         periciasEspaços = 8;
     }
+
+    /*public void stats() {
+        System.out.println(getVidaPontos());
+        System.out.println(getMagiaPontos());
+        System.out.println(getPericiasEspaços());
+        System.out.println(getForça());
+        System.out.println(getDestreza());
+        System.out.println(getConstituição());
+        System.out.println(getSabedoria());
+        System.out.println(getInteligência());
+        System.out.println(getCarisma());
+    }*/
 }
