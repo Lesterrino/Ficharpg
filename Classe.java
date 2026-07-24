@@ -1,18 +1,16 @@
 package Rpg;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class Classe extends Personagem {
 
     protected int vidaPontos;
     protected int magiaPontos;
-    protected int modForça = Math.floorDiv(força -10, 2);
-    protected int modDestreza = Math.floorDiv(destreza -10, 2);
-    protected int modConstituição = Math.floorDiv(constituição -10, 2);
-    protected int modSabedoria = Math.floorDiv(sabedoria -10, 2);
-    protected int modInteligencia = Math.floorDiv(inteligência -10, 2);
-    protected int modCarisma = Math.floorDiv(carisma -10, 2);
-    protected int periciasEspaços;
+    protected int modForca;
+    protected int modDestreza;
+    protected int modConstituicao;
+    protected int modSabedoria;
+    protected int modInteligencia;
+    protected int modCarisma;
+    protected int periciasEspacos;
 
     public int getVidaPontos() {
         return vidaPontos;
@@ -30,12 +28,12 @@ public class Classe extends Personagem {
         this.magiaPontos = magiaPontos;
     }
 
-    public int getModForça() {
-        return modForça;
+    public int getModForca() {
+        return modForca;
     }
 
-    public void setModForça(int modForça) {
-        this.modForça = modForça;
+    public void setModForca(int modForca) {
+        this.modForca = modForca;
     }
 
     public int getModDestreza() {
@@ -46,12 +44,12 @@ public class Classe extends Personagem {
         this.modDestreza = modDestreza;
     }
 
-    public int getModConstituição() {
-        return modConstituição;
+    public int getModConstituicao() {
+        return modConstituicao;
     }
 
-    public void setModConstituição(int modConstituição) {
-        this.modConstituição = modConstituição;
+    public void setModConstituicao(int modConstituicao) {
+        this.modConstituicao = modConstituicao;
     }
 
     public int getModSabedoria() {
@@ -78,12 +76,12 @@ public class Classe extends Personagem {
         this.modCarisma = modCarisma;
     }
 
-    public int getPericiasEspaços() {
-        return periciasEspaços;
+    public int getPericiasEspacos() {
+        return periciasEspacos;
     }
 
-    public void setPericiasEspaços(int periciasEspaços) {
-        this.periciasEspaços = periciasEspaços;
+    public void setPericiasEspacos(int periciasEspacos) {
+        this.periciasEspacos = periciasEspacos;
     }
 
     public int calculoModificador(int numAtributo) {
@@ -91,32 +89,20 @@ public class Classe extends Personagem {
     }
 
     public void barbaro() {
-        vidaPontos = 24 + getModConstituição();
+        vidaPontos = 24 + getModConstituicao();
         magiaPontos = 3;
-        periciasEspaços = 4;
+        periciasEspacos = 4;
     }
 
     public void bardo() {
-        vidaPontos = 12 + getModConstituição();
+        vidaPontos = 12 + getModConstituicao();
         magiaPontos = 4;
-        periciasEspaços = 6;
+        periciasEspacos = 6;
     }
 
     public void ladino() {
-        vidaPontos = 12 + getModConstituição();
+        vidaPontos = 12 + getModConstituicao();
         magiaPontos = 4;
-        periciasEspaços = 8;
+        periciasEspacos = 8;
     }
-
-    /*public void stats() {
-        System.out.println(getVidaPontos());
-        System.out.println(getMagiaPontos());
-        System.out.println(getPericiasEspaços());
-        System.out.println(getForça());
-        System.out.println(getDestreza());
-        System.out.println(getConstituição());
-        System.out.println(getSabedoria());
-        System.out.println(getInteligência());
-        System.out.println(getCarisma());
-    }*/
 }
