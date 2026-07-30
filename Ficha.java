@@ -103,7 +103,6 @@ public class Ficha {
                 digitarAtributo = Usuario.nextLine();
                 perDoJogador.setValorStringAtributo(digitarAtributo);
                 perDoJogador.calculoCustoDePontos();
-                perDoJogador.compraDePontos();
             }
         perDoJogador.proximaEtapa();
         }

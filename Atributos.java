@@ -1,6 +1,6 @@
 package Rpg;
 
-public class Atributos extends Classe{
+public class Atributos extends Classe {
 
     protected boolean avaliacaoProximaEtapa;
     protected boolean avaliacaoAtributo;
@@ -10,8 +10,14 @@ public class Atributos extends Classe{
     protected String valorStringAtributo;
     protected int valorIntAtributo;
     protected int custoDePontos;
-    protected int pontosDeAtributos = 20;
     protected boolean avaliacaoCompraDePontos;
+    protected int pontoAntes = 0;
+    protected int forcaAntes;
+    protected int destrezaAntes;
+    protected int constituicaoAntes;
+    protected int sabedoriaAntes;
+    protected int inteligenciaAntes;
+    protected int carismaAntes;
 
     public boolean isAvaliacaoProximaEtapa() {
         return avaliacaoProximaEtapa;
@@ -143,6 +149,8 @@ public class Atributos extends Classe{
                     getForca2() + "(" + getModForca() + ")");
             avaliacaoDefinirAtributo = true;
             avaliacaoAtributo = false;
+            pontosDeAtributos += custoDePontos - forcaAntes;
+            forcaAntes = custoDePontos;
         } else if (nomeAtributo.equals("destreza")) {
             setDestreza2(0);
             setDestreza2(getDestreza() + valorAtributo);
@@ -151,6 +159,8 @@ public class Atributos extends Classe{
                     getDestreza2() + "(" + getModDestreza() + ")");
             avaliacaoDefinirAtributo = true;
             avaliacaoAtributo = false;
+            pontosDeAtributos += custoDePontos - destrezaAntes;
+            destrezaAntes = custoDePontos;
         } else if (nomeAtributo.equals("constituicao")) {
             setConstituicao2(0);
             setConstituicao2(getConstituicao() + valorAtributo);
@@ -159,6 +169,8 @@ public class Atributos extends Classe{
                     getConstituicao2() + "(" + getModConstituicao() + ")");
             avaliacaoDefinirAtributo = true;
             avaliacaoAtributo = false;
+            pontosDeAtributos += custoDePontos - constituicaoAntes;
+            constituicaoAntes = custoDePontos;
         } else if (nomeAtributo.equals("sabedoria")) {
             setSabedoria2(0);
             setSabedoria2(getSabedoria() + valorAtributo);
@@ -167,6 +179,8 @@ public class Atributos extends Classe{
                     getSabedoria2() + "(" + getModSabedoria() + ")");
             avaliacaoDefinirAtributo = true;
             avaliacaoAtributo = false;
+            pontosDeAtributos += custoDePontos - sabedoriaAntes;
+            sabedoriaAntes = custoDePontos;
         } else if (nomeAtributo.equals("inteligencia")) {
             setInteligencia2(0);
             setInteligencia2(getInteligencia() + valorAtributo);
@@ -175,6 +189,8 @@ public class Atributos extends Classe{
                     getInteligencia2() + "(" + getModInteligencia() + ")");
             avaliacaoDefinirAtributo = true;
             avaliacaoAtributo = false;
+            pontosDeAtributos += custoDePontos - inteligenciaAntes;
+            inteligenciaAntes = custoDePontos;
         } else if (nomeAtributo.equals("carisma")) {
             setCarisma2(0);
             setCarisma2(getCarisma() + valorAtributo);
@@ -183,6 +199,8 @@ public class Atributos extends Classe{
                     getCarisma2() + "(" + getModCarisma() + ")");
             avaliacaoDefinirAtributo = true;
             avaliacaoAtributo = false;
+            pontosDeAtributos += custoDePontos - carismaAntes;
+            carismaAntes = custoDePontos;
         } else {
             avaliacaoDefinirAtributo = false;
         }
@@ -226,33 +244,53 @@ public class Atributos extends Classe{
             if (valorIntAtributo > 7 && valorIntAtributo < 19) {
                 if (valorIntAtributo <= 14) {
                     custoDePontos = -valorIntAtributo + 10;
-                    definirAtributo(nomeAtributo, valorIntAtributo);
+                    compraDePontos();
                 } else if (valorIntAtributo == 15) {
                     custoDePontos = -valorIntAtributo + 9;
-                    definirAtributo(nomeAtributo, valorIntAtributo);
+                    compraDePontos();
                 } else if (valorIntAtributo == 16) {
                     custoDePontos = -valorIntAtributo + 8;
-                    definirAtributo(nomeAtributo, valorIntAtributo);
+                    compraDePontos();
                 } else if (valorIntAtributo == 17) {
                     custoDePontos = -valorIntAtributo + 6;
-                    definirAtributo(nomeAtributo, valorIntAtributo);
-                } else if (valorIntAtributo == 18) {
+                    compraDePontos();
+                } else if (getValorIntAtributo() == 18) {
                     custoDePontos = -valorIntAtributo + 4;
-                    definirAtributo(nomeAtributo, valorIntAtributo);
+                    compraDePontos();
                 }
             } else {
-                    System.out.println("Escolha um valor entre 8 e 18!!!");
-                }
-        } catch (NumberFormatException nfe) {
-                System.out.println("Digite um valor válido!");
+                System.out.println("Escolha um valor entre 8 e 18!!!");
             }
+        } catch (NumberFormatException nfe) {
+            System.out.println("Digite um valor válido!");
+        }
     }
 
     public void compraDePontos() {
-            pontosDeAtributos += custoDePontos;
-            System.out.println("Pontos restantes para comprar atributos: " + getPontosDeAtributos());
-        }
+            /*if (nomeAtributo.equals(nomeAtributoAnterior)) {
+                pontosDeAtributos1 += custoDePontos - diferenca;
+                System.out.println("Pontos restantes para comprar atributos: " + getPontosDeAtributos());
+                setNomeAtributoAnterior(nomeAtributo);
+                diferenca = pontosDeAtributos - pontosDeAtributos1;
+            } else {
+                pontosDeAtributos1 += custoDePontos;
+                System.out.println("Pontos restantes para comprar atributos: " + getPontosDeAtributos());
+                setNomeAtributoAnterior(nomeAtributo);
+                diferenca = pontosDeAtributos - pontosDeAtributos1;
+            }
+        }*/
+        if (pontosDeAtributos + custoDePontos >= 0) {
+            //if (pontoAntes != 0) {
+            //    pontosDeAtributos1 += custoDePontos;
 
+            //pontosDeAtributos += custoDePontos - pontoAntes;
+            definirAtributo(nomeAtributo, valorIntAtributo);
+            System.out.println("Pontos restantes para comprar atributos: " + getPontosDeAtributos());
+        } else {
+            System.out.println("Não foi possível fazer a matemática" +
+                    "\nSeus pontos restantes para comprar atributos são: " + getPontosDeAtributos());
+        }
     }
+}
 
 

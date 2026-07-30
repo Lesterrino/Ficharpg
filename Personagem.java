@@ -8,6 +8,7 @@ public class Personagem {
     protected int vidaPontos;
     protected int magiaPontos;
     protected int pontosDeAtributos = 20;
+    protected int pontosDeAtributos1 = 20;
     protected int forca;
     protected int destreza;
     protected int constituicao;
