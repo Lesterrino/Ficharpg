@@ -2,21 +2,29 @@ package Rpg;
 
 public class Personagem {
 
-    protected String raça;
+    protected String raca;
     protected int deslocamento;
     protected int cd;
     protected int vidaPontos;
     protected int magiaPontos;
     protected int pontosDeAtributos = 20;
-    protected int força;
+    protected int pontosDeAtributos1 = 20;
+    protected int forca;
     protected int destreza;
-    protected int constituição;
+    protected int constituicao;
     protected int sabedoria;
-    protected int inteligência;
+    protected int inteligencia;
     protected int carisma;
+    protected int forca2;
+    protected int destreza2;
+    protected int constituicao2;
+    protected int sabedoria2;
+    protected int inteligencia2;
+    protected int carisma2;
 
-    public Personagem(String raça, int deslocamento, int cd, int pv, int pm) {
-        this.raça = raça;
+
+    public Personagem(String raca, int deslocamento, int cd, int pv, int pm) {
+        this.raca = raca;
         this.deslocamento = deslocamento;
         this.cd = cd;
         this.vidaPontos = pv;
@@ -25,12 +33,12 @@ public class Personagem {
 
     public Personagem() {}
 
-    public String getRaça() {
-        return raça;
+    public String getRaca() {
+        return raca;
     }
 
-    public void setRaça(String nome) {
-        this.raça = nome;
+    public void setRaca(String nome) {
+        this.raca = nome;
     }
 
     public int getDeslocamento() {
@@ -73,12 +81,12 @@ public class Personagem {
         this.pontosDeAtributos = pontosDeAtributos;
     }
 
-    public int getForça() {
-        return força;
+    public int getForca() {
+        return forca;
     }
 
-    public void setForça(int força) {
-        this.força = força;
+    public void setForca(int forca) {
+        this.forca = forca;
     }
 
     public int getDestreza() {
@@ -89,12 +97,12 @@ public class Personagem {
         this.destreza = destreza;
     }
 
-    public int getConstituição() {
-        return constituição;
+    public int getConstituicao() {
+        return constituicao;
     }
 
-    public void setConstituição(int constituição) {
-        this.constituição = constituição;
+    public void setConstituicao(int constituicao) {
+        this.constituicao = constituicao;
     }
 
     public int getSabedoria() {
@@ -105,12 +113,12 @@ public class Personagem {
         this.sabedoria = sabedoria;
     }
 
-    public int getInteligência() {
-        return inteligência;
+    public int getInteligencia() {
+        return inteligencia;
     }
 
-    public void setInteligência(int inteligência) {
-        this.inteligência = inteligência;
+    public void setInteligencia(int inteligencia) {
+        this.inteligencia = inteligencia;
     }
 
     public int getCarisma() {
@@ -121,18 +129,66 @@ public class Personagem {
         this.carisma = carisma;
     }
 
-    public void atributosHumano() {
+    public int getForca2() {
+        return forca2;
+    }
+
+    public void setForca2(int forca2) {
+        this.forca2 = forca2;
+    }
+
+    public int getDestreza2() {
+        return destreza2;
+    }
+
+    public void setDestreza2(int destreza2) {
+        this.destreza2 = destreza2;
+    }
+
+    public int getConstituicao2() {
+        return constituicao2;
+    }
+
+    public void setConstituicao2(int constituicao2) {
+        this.constituicao2 = constituicao2;
+    }
+
+    public int getSabedoria2() {
+        return sabedoria2;
+    }
+
+    public void setSabedoria2(int sabedoria2) {
+        this.sabedoria2 = sabedoria2;
+    }
+
+    public int getInteligencia2() {
+        return inteligencia2;
+    }
+
+    public void setInteligencia2(int inteligencia2) {
+        this.inteligencia2 = inteligencia2;
+    }
+
+    public int getCarisma2() {
+        return carisma2;
+    }
+
+    public void setCarisma2(int carisma2) {
+        this.carisma2 = carisma2;
+    }
+
+    public void atributosHumano(){
         this.pontosDeAtributos += 2;
     }
 
     public void atributosElfo() {
-        this.inteligência += 4;
+        this.inteligencia += 4;
         this.destreza += 2;
-        this.constituição -= 2;
+        this.constituicao -= 2;
     }
 
     public void atributosAnao() {
-        this.constituição += 4;
+        this.constituicao += 4;
         this.sabedoria += 2;
         this.destreza -= 2;
     }
