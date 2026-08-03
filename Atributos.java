@@ -11,13 +11,13 @@ public class Atributos extends Classe {
     protected int valorIntAtributo;
     protected int custoDePontos;
     protected boolean avaliacaoCompraDePontos;
-    protected int pontoAntes = 0;
     protected int forcaAntes;
     protected int destrezaAntes;
     protected int constituicaoAntes;
     protected int sabedoriaAntes;
     protected int inteligenciaAntes;
     protected int carismaAntes;
+    protected int pontoAntes;
 
     public boolean isAvaliacaoProximaEtapa() {
         return avaliacaoProximaEtapa;
@@ -89,6 +89,28 @@ public class Atributos extends Classe {
 
     public void setPontosDeAtributos(int pontosDeAtributos) {
         this.pontosDeAtributos = pontosDeAtributos;
+    }
+
+    public int getPontoAntes(String nomeAtributo) {
+        switch(nomeAtributo.toLowerCase()) {
+            case "forca":
+                return forcaAntes;
+            case "destreza":
+                return destrezaAntes;
+            default:
+                return 0;
+        }
+    }
+
+    public void setPontoAntes(String nomeAtributo, int pontoAntes) {
+        switch(nomeAtributo.toLowerCase()) {
+            case "forca":
+                forcaAntes = pontoAntes;
+                break;
+            case "destreza":
+                destrezaAntes = pontoAntes;
+                break;
+        }
     }
 
     public void avaliarAtributoDigitado(String nomeAtributo) {
@@ -206,19 +228,6 @@ public class Atributos extends Classe {
         }
     }
 
-    /*public void definirAtributoTryCatch() {
-        try {
-            valorIntAtributo = Integer.parseInt(valorStringAtributo);
-            if (valorIntAtributo > 7 && valorIntAtributo < 19) {
-                definirAtributo(nomeAtributo, valorIntAtributo);
-            } else {
-                System.out.println("Escolha um valor entre 8 e 18!");
-            }
-        } catch (NumberFormatException nfe) {
-            System.out.println("Digite um valor válido!");
-        }
-    }*/
-
     public void proximaEtapa() {
         if (forca2 > 4 && destreza2 > 4 && constituicao2 > 4 &&
                 sabedoria2 > 4 && inteligencia2 > 4 && carisma2 > 4) {
@@ -267,28 +276,30 @@ public class Atributos extends Classe {
     }
 
     public void compraDePontos() {
-            /*if (nomeAtributo.equals(nomeAtributoAnterior)) {
-                pontosDeAtributos1 += custoDePontos - diferenca;
-                System.out.println("Pontos restantes para comprar atributos: " + getPontosDeAtributos());
-                setNomeAtributoAnterior(nomeAtributo);
-                diferenca = pontosDeAtributos - pontosDeAtributos1;
-            } else {
-                pontosDeAtributos1 += custoDePontos;
-                System.out.println("Pontos restantes para comprar atributos: " + getPontosDeAtributos());
-                setNomeAtributoAnterior(nomeAtributo);
-                diferenca = pontosDeAtributos - pontosDeAtributos1;
-            }
-        }*/
+        pontoAntes = getPontoAntes(nomeAtributo);
         if (pontosDeAtributos + custoDePontos >= 0) {
-            //if (pontoAntes != 0) {
-            //    pontosDeAtributos1 += custoDePontos;
-
-            //pontosDeAtributos += custoDePontos - pontoAntes;
             definirAtributo(nomeAtributo, valorIntAtributo);
-            System.out.println("Pontos restantes para comprar atributos: " + getPontosDeAtributos());
+            setPontoAntes(nomeAtributo, custoDePontos);
+            System.out.println("Pontos restantes para comprar atributos: " +
+                    getPontosDeAtributos());
+        } /*else if (nomeAtributo.equals("forca") && forcaAntes!= 0 &&
+                pontosDeAtributos + custoDePontos <= 0) {
+                pontosDeAtributos -= forcaAntes;
+                forcaAntes = 0;
+                definirAtributo(nomeAtributo, valorIntAtributo);
+                System.out.println("Pontos restantes para comprar atributos: "
+                        + getPontosDeAtributos());*/
+        else if (pontoAntes != 0 && pontosDeAtributos + custoDePontos - pontoAntes >= 0) {
+                //pontosDeAtributos += custoDePontos - pontoAntes;
+                definirAtributo(nomeAtributo, valorIntAtributo);
+                setPontoAntes(nomeAtributo, custoDePontos);
+                System.out.println("Pontos restantes para comprar atributos: " +
+                    getPontosDeAtributos());
         } else {
             System.out.println("Não foi possível fazer a matemática" +
-                    "\nSeus pontos restantes para comprar atributos são: " + getPontosDeAtributos());
+                    "\nSeus pontos restantes para comprar atributos são apenas: "
+                    + getPontosDeAtributos());
+            System.out.println("Digite outro valor!");
         }
     }
 }
