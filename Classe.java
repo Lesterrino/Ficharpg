@@ -1,6 +1,6 @@
 package Rpg;
 
-public class Classe extends Personagem {
+public class Classe extends Origem {
 
     protected int vidaPontos;
     protected int magiaPontos;

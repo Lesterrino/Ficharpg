@@ -106,6 +106,46 @@ public class Ficha {
             }
         perDoJogador.proximaEtapa();
         }
+
         perDoJogador.exibirAtributos();
+
+        String digitarOrigem = "";
+        String digitarOficio;
+        String digitarCriminoso;
+
+        System.out.println("\nMaravilha! Seus pontos de atributos foram definidos." +
+                            "\nAgora você irá escolher qual a sua ORIGEM." +
+                            "\n..." + "\n..." + "\n..." + "\nEscolha entre:" +
+                            "\nArtesão    -    A prova de tudo    -    Criminoso");
+
+        digitarOrigem = Usuario.nextLine().toLowerCase();
+
+        while (!perDoJogador.origemEscolhida) {
+            if (digitarOrigem.equals("artesao")) {
+                while (!perDoJogador.oficioEscolhido) {
+                    System.out.println("Escolha um ofício dentre as opções a seguir:" + "\n" +
+                            "\nAlquimista - Carpinteiro - Escriba - Engenhoqueiro - Joalheiro");
+                    digitarOficio = Usuario.nextLine();
+                    perDoJogador.setKitOficioEscolhido(digitarOficio);
+                    perDoJogador.kitDeOficio();
+                }
+                perDoJogador.artesao();
+            } else if (digitarOrigem.equals("a prova de tudo")) {
+                perDoJogador.aProvaDeTudo();
+            } else if (digitarOrigem.equals("criminoso")) {
+                while (!perDoJogador.criminosoEscolhido) {
+                    System.out.println("Você tem duas opções de Kit de Criminoso para escolher:" +
+                            "\nKit de Ladrão    -    Kit de Disfarce");
+                    digitarCriminoso = Usuario.nextLine();
+                    perDoJogador.setKitCriminosoEscolhido(digitarCriminoso);
+                    perDoJogador.kitCriminoso();
+                }
+                perDoJogador.criminoso();
+            } else {
+                System.out.println("Digite uma origem válida!" + " Escolha entre:" +
+                                    "\nArtesão    -    A prova de tudo    -    Criminoso");
+                digitarOrigem = Usuario.nextLine().toLowerCase();
+            }
+        }
         }
     }
