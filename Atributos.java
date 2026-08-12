@@ -97,6 +97,14 @@ public class Atributos extends Classe {
                 return forcaAntes;
             case "destreza":
                 return destrezaAntes;
+            case "constituicao":
+                return constituicaoAntes;
+            case "sabedoria":
+                return sabedoriaAntes;
+            case "inteligencia":
+                return inteligenciaAntes;
+            case "carisma":
+                return carismaAntes;
             default:
                 return 0;
         }
@@ -110,6 +118,19 @@ public class Atributos extends Classe {
             case "destreza":
                 destrezaAntes = pontoAntes;
                 break;
+            case "constituicao":
+                constituicaoAntes = pontoAntes;
+                break;
+            case "sabedoria":
+                sabedoriaAntes = pontoAntes;
+                break;
+            case "inteligencia":
+                inteligenciaAntes = pontoAntes;
+                break;
+            case "carisma":
+                carismaAntes = pontoAntes;
+                break;
+            default:
         }
     }
 
@@ -282,15 +303,8 @@ public class Atributos extends Classe {
             setPontoAntes(nomeAtributo, custoDePontos);
             System.out.println("Pontos restantes para comprar atributos: " +
                     getPontosDeAtributos());
-        } /*else if (nomeAtributo.equals("forca") && forcaAntes!= 0 &&
-                pontosDeAtributos + custoDePontos <= 0) {
-                pontosDeAtributos -= forcaAntes;
-                forcaAntes = 0;
-                definirAtributo(nomeAtributo, valorIntAtributo);
-                System.out.println("Pontos restantes para comprar atributos: "
-                        + getPontosDeAtributos());*/
+        }
         else if (pontoAntes != 0 && pontosDeAtributos + custoDePontos - pontoAntes >= 0) {
-                //pontosDeAtributos += custoDePontos - pontoAntes;
                 definirAtributo(nomeAtributo, valorIntAtributo);
                 setPontoAntes(nomeAtributo, custoDePontos);
                 System.out.println("Pontos restantes para comprar atributos: " +
