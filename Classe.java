@@ -11,6 +11,7 @@ public class Classe extends Origem {
     protected int modInteligencia;
     protected int modCarisma;
     protected int periciasEspacos;
+    protected String classeDoJogador;
 
     public int getVidaPontos() {
         return vidaPontos;
@@ -88,21 +89,32 @@ public class Classe extends Origem {
         return (numAtributo - 10) / 2;
     }
 
-    public void barbaro() {
+    public String getClasseDoJogador() {
+        return classeDoJogador;
+    }
+
+    public void setClasseDoJogador(String classeDoJogador) {
+        this.classeDoJogador = classeDoJogador;
+    }
+
+    public void barbaroBase() {
         vidaPontos = 24 + getModConstituicao();
         magiaPontos = 3;
         periciasEspacos = 4;
+        classeDoJogador = "barbaro";
     }
 
-    public void bardo() {
+    public void bardoBase() {
         vidaPontos = 12 + getModConstituicao();
         magiaPontos = 4;
         periciasEspacos = 6;
+        classeDoJogador = "bardo";
     }
 
-    public void ladino() {
+    public void ladinoBase() {
         vidaPontos = 12 + getModConstituicao();
         magiaPontos = 4;
         periciasEspacos = 8;
+        classeDoJogador = "ladino";
     }
 }

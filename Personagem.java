@@ -21,7 +21,7 @@ public class Personagem {
     protected int sabedoria2;
     protected int inteligencia2;
     protected int carisma2;
-
+    protected String racaPersonagem;
 
     public Personagem(String raca, int deslocamento, int cd, int pv, int pm) {
         this.raca = raca;
@@ -175,6 +175,14 @@ public class Personagem {
 
     public void setCarisma2(int carisma2) {
         this.carisma2 = carisma2;
+    }
+
+    public String getRacaPersonagem() {
+        return racaPersonagem;
+    }
+
+    public void setRacaPersonagem(String racaPersonagem) {
+        this.racaPersonagem = racaPersonagem;
     }
 
     public void atributosHumano(){

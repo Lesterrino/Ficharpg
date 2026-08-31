@@ -2,6 +2,7 @@ package Rpg;
 import com.sun.source.util.SourcePositions;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -28,14 +29,17 @@ public class Ficha {
                 case "humano", "umano", "human":
                     perDoJogador.atributosHumano();
                     racaEscolhida = true;
+                    perDoJogador.setRacaPersonagem("humano");
                     break;
                 case "elfo", "elfa", "elf", "elfico":
                     perDoJogador.atributosElfo();
                     racaEscolhida = true;
+                    perDoJogador.setRacaPersonagem("elfo");
                     break;
                 case "anao", "anão":
                     perDoJogador.atributosAnao();
                     racaEscolhida = true;
+                    perDoJogador.setRacaPersonagem("anao");
                     break;
                 default:
                     System.out.println("Tente digitar novamente");
@@ -57,15 +61,15 @@ public class Ficha {
             classe = Usuario.nextLine().trim().toLowerCase();
             switch (classe) {
                 case "barbaro", "berseker", "barbarian", "barbáro", "bárbaro":
-                    perDoJogador.barbaro();
+                    perDoJogador.barbaroBase();
                     classeEscolhida = true;
                     break;
                 case "bardo", "bard", "bardoo":
-                    perDoJogador.bardo();
+                    perDoJogador.bardoBase();
                     classeEscolhida = true;
                     break;
                 case "ladino", "ladinho", "Rogue", "Thief":
-                    perDoJogador.ladino();
+                    perDoJogador.ladinoBase();
                     classeEscolhida = true;
                     break;
                 default:
@@ -112,6 +116,7 @@ public class Ficha {
         String digitarOrigem = "";
         String digitarOficio;
         String digitarCriminoso;
+        ArrayList <String> periciasEscolhidas = new ArrayList<>();
 
         System.out.println("\nMaravilha! Seus pontos de atributos foram definidos." +
                             "\nAgora você irá escolher qual a sua ORIGEM." +
@@ -128,6 +133,7 @@ public class Ficha {
                     digitarOficio = Usuario.nextLine();
                     perDoJogador.setKitOficioEscolhido(digitarOficio);
                     perDoJogador.kitDeOficio();
+                    periciasEscolhidas.add("vontade");
                 }
                 perDoJogador.artesao();
             } else if (digitarOrigem.equals("a prova de tudo")) {
@@ -139,6 +145,9 @@ public class Ficha {
                     digitarCriminoso = Usuario.nextLine();
                     perDoJogador.setKitCriminosoEscolhido(digitarCriminoso);
                     perDoJogador.kitCriminoso();
+                    periciasEscolhidas.add("furtividade");
+                    periciasEscolhidas.add("enganacao");
+                    periciasEscolhidas.add("ladinagem");
                 }
                 perDoJogador.criminoso();
             } else {
@@ -147,5 +156,71 @@ public class Ficha {
                 digitarOrigem = Usuario.nextLine().toLowerCase();
             }
         }
+
+        String periciaEscolhida;
+        perDoJogador.periciasIntroducao();
+        if(perDoJogador.getClasseDoJogador().equals("ladino")) {
+            perDoJogador.ladinoPericias();
+            for(int contador = 0; contador < 8; contador +=1) {
+                periciaEscolhida = Usuario.nextLine().toLowerCase();
+                perDoJogador.setPericiaSwitch(periciaEscolhida);
+                perDoJogador.bonusPericia(perDoJogador.getPericiaSwitch());
+                if (!perDoJogador.isPericiaValida() || periciasEscolhidas.contains(periciaEscolhida)) {
+                    contador -= 1;
+                } else {
+                    if (contador < 7) {
+                        periciasEscolhidas.add(periciaEscolhida);
+                        System.out.println("Prossiga escolhendo as demais perícias da lista.");
+                    } else {
+                        System.out.println("Você escolheu suas 8 perícias." +
+                                "\nA seguir mostramos a lista de todas as perícias que você possui:");
+                        periciasEscolhidas.add("ladinagem");
+                        periciasEscolhidas.add("reflexos");
+                    }
+                }
+            }
+        } else if (perDoJogador.getClasseDoJogador().equals("bardo")) {
+            perDoJogador.bardoPericias();
+            for(int contador = 0; contador < 6; contador +=1) {
+                periciaEscolhida = Usuario.nextLine().toLowerCase();
+                perDoJogador.setPericiaSwitch(periciaEscolhida);
+                perDoJogador.bonusPericia(perDoJogador.getPericiaSwitch());
+                if (!perDoJogador.isPericiaValida() || periciasEscolhidas.contains(periciaEscolhida)) {
+                    contador -= 1;
+                } else {
+                    if (contador < 5) {
+                        periciasEscolhidas.add(periciaEscolhida);
+                        System.out.println("Prossiga escolhendo as demais perícias da lista.");
+                    } else {
+                        System.out.println("Você escolheu suas 6 perícias." +
+                                "\nA seguir mostramos a lista de todas as perícias que você possui:");
+                        periciasEscolhidas.add("atuacao");
+                        periciasEscolhidas.add("reflexos");
+                    }
+                }
+            }
+        } else if (perDoJogador.getClasseDoJogador().equals("barbaro")) {
+            perDoJogador.barbaroPericias();
+            for (int contador = 0; contador < 4; contador += 1) {
+                periciaEscolhida = Usuario.nextLine().toLowerCase();
+                perDoJogador.setPericiaSwitch(periciaEscolhida);
+                perDoJogador.bonusPericia(perDoJogador.getPericiaSwitch());
+                if (!perDoJogador.isPericiaValida() || periciasEscolhidas.contains(periciaEscolhida)) {
+                    contador -= 1;
+                } else {
+                    if (contador < 3) {
+                        periciasEscolhidas.add(periciaEscolhida);
+                        System.out.println("Prossiga escolhendo as demais perícias da lista.");
+                    } else {
+                        System.out.println("Você escolheu suas 4 perícias." +
+                                "\nA seguir mostramos a lista de todas as perícias que você possui:");
+                        periciasEscolhidas.add(periciaEscolhida);
+                        periciasEscolhidas.add("fortitude");
+                        periciasEscolhidas.add("luta");
+                    }
+                }
+            }
         }
+        System.out.println(periciasEscolhidas);
     }
+}

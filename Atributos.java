@@ -1,6 +1,6 @@
 package Rpg;
 
-public class Atributos extends Classe {
+public class Atributos extends Pericia {
 
     protected boolean avaliacaoProximaEtapa;
     protected boolean avaliacaoAtributo;
