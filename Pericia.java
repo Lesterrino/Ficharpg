@@ -2,7 +2,7 @@ package Rpg;
 
 import java.util.ArrayList;
 
-public class Pericia extends Classe{
+public class Pericia extends Itens{
 
     protected int acrobacia = modDestreza;
     protected int adestramento = modCarisma;

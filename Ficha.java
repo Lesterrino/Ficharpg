@@ -221,6 +221,48 @@ public class Ficha {
                 }
             }
         }
+
         System.out.println(periciasEscolhidas);
+
+        perDoJogador.mensagemItensPrimarios();
+        perDoJogador.armaSimplesMensagem();
+        String digitarItem = "";
+
+        do {
+            digitarItem = Usuario.nextLine().toLowerCase();
+            perDoJogador.setLeitorItem(digitarItem);
+            perDoJogador.escolherArmaSimples(perDoJogador.getLeitorItem());
+            if (perDoJogador.isArmaSimplesVerificador()) {
+                System.out.println(perDoJogador.getArmaSimples());
+            }
+        } while (!perDoJogador.isArmaSimplesVerificador());
+
+        if (perDoJogador.getClasseDoJogador().equals("ladino")) {
+
+        } else {
+            perDoJogador.armaMarcialMensagem();
+            do {
+                digitarItem = Usuario.nextLine().toLowerCase();
+                perDoJogador.setLeitorItem(digitarItem);
+                perDoJogador.escolherArmaMarcial(perDoJogador.getLeitorItem());
+                if (perDoJogador.isArmaMarcialVerificador()) {
+                    System.out.println(perDoJogador.getArmaMarcial());
+                }
+            } while (!perDoJogador.isArmaMarcialVerificador());
+        }
+
+        perDoJogador.armaduraMensagem();
+        do {
+            digitarItem = Usuario.nextLine().toLowerCase();
+            perDoJogador.setLeitorItem(digitarItem);
+            perDoJogador.escolherArmadura(perDoJogador.getLeitorItem());
+            if (perDoJogador.isArmaduraVerificador()) {
+                System.out.println(perDoJogador.getArmadura());
+            }
+        } while (!perDoJogador.isArmaduraVerificador());
+
+        perDoJogador.listaFinalItens();
+
+        //TESTAR ESSA ÚLTIMA PARTE CODADA PRA VER SE FICOU AS PAMPAS
     }
 }
