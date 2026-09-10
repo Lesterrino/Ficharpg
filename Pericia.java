@@ -365,6 +365,7 @@ public class Pericia extends Itens{
         System.out.println("Você escolheu a classe... Bardo!" +
                 "\nE sendo um bardo. você é naturalmente proficiente em:" +
                 "\nAtuação e Reflexos." +
+                "\nAgora, escolha 6 perícias entre as perícias a seguir:" +
                 "\nAcrobacia - Cavalgar - Conhecimento - Diplomacia" +
                 "\nEnganação - Furtividade - Iniciativa -  Intuição" +
                 "\nInvestigação  -  Jogatina  -  Ladinagem  -  Luta" +

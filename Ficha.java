@@ -167,8 +167,8 @@ public class Ficha {
                 perDoJogador.bonusPericia(perDoJogador.getPericiaSwitch());
                 if (!perDoJogador.isPericiaValida() || periciasEscolhidas.contains(periciaEscolhida)) {
                     contador -= 1;
-                } else {
-                    if (contador < 7) {
+                    System.out.println("Digite uma perícia da lista e que não seja repetida!");
+                } else if (contador < 7) {
                         periciasEscolhidas.add(periciaEscolhida);
                         System.out.println("Prossiga escolhendo as demais perícias da lista.");
                     } else {
@@ -176,7 +176,6 @@ public class Ficha {
                                 "\nA seguir mostramos a lista de todas as perícias que você possui:");
                         periciasEscolhidas.add("ladinagem");
                         periciasEscolhidas.add("reflexos");
-                    }
                 }
             }
         } else if (perDoJogador.getClasseDoJogador().equals("bardo")) {
@@ -187,8 +186,8 @@ public class Ficha {
                 perDoJogador.bonusPericia(perDoJogador.getPericiaSwitch());
                 if (!perDoJogador.isPericiaValida() || periciasEscolhidas.contains(periciaEscolhida)) {
                     contador -= 1;
-                } else {
-                    if (contador < 5) {
+                    System.out.println("Digite uma perícia da lista e que não seja repetida!");
+                } else if (contador < 5) {
                         periciasEscolhidas.add(periciaEscolhida);
                         System.out.println("Prossiga escolhendo as demais perícias da lista.");
                     } else {
@@ -196,7 +195,6 @@ public class Ficha {
                                 "\nA seguir mostramos a lista de todas as perícias que você possui:");
                         periciasEscolhidas.add("atuacao");
                         periciasEscolhidas.add("reflexos");
-                    }
                 }
             }
         } else if (perDoJogador.getClasseDoJogador().equals("barbaro")) {
@@ -207,17 +205,16 @@ public class Ficha {
                 perDoJogador.bonusPericia(perDoJogador.getPericiaSwitch());
                 if (!perDoJogador.isPericiaValida() || periciasEscolhidas.contains(periciaEscolhida)) {
                     contador -= 1;
-                } else {
-                    if (contador < 3) {
+                    System.out.println("Digite uma perícia da lista e que não seja repetida!");
+                } else if (contador < 3) {
                         periciasEscolhidas.add(periciaEscolhida);
                         System.out.println("Prossiga escolhendo as demais perícias da lista.");
-                    } else {
+                } else {
                         System.out.println("Você escolheu suas 4 perícias." +
                                 "\nA seguir mostramos a lista de todas as perícias que você possui:");
                         periciasEscolhidas.add(periciaEscolhida);
                         periciasEscolhidas.add("fortitude");
                         periciasEscolhidas.add("luta");
-                    }
                 }
             }
         }
@@ -231,6 +228,7 @@ public class Ficha {
         do {
             digitarItem = Usuario.nextLine().toLowerCase();
             perDoJogador.setLeitorItem(digitarItem);
+            perDoJogador.setArmaSimplesVerificador(true);
             perDoJogador.escolherArmaSimples(perDoJogador.getLeitorItem());
             if (perDoJogador.isArmaSimplesVerificador()) {
                 System.out.println(perDoJogador.getArmaSimples());
@@ -244,6 +242,7 @@ public class Ficha {
             do {
                 digitarItem = Usuario.nextLine().toLowerCase();
                 perDoJogador.setLeitorItem(digitarItem);
+                perDoJogador.setArmaMarcialVerificador(true);
                 perDoJogador.escolherArmaMarcial(perDoJogador.getLeitorItem());
                 if (perDoJogador.isArmaMarcialVerificador()) {
                     System.out.println(perDoJogador.getArmaMarcial());
@@ -255,6 +254,7 @@ public class Ficha {
         do {
             digitarItem = Usuario.nextLine().toLowerCase();
             perDoJogador.setLeitorItem(digitarItem);
+            perDoJogador.setArmaduraVerificador(true);
             perDoJogador.escolherArmadura(perDoJogador.getLeitorItem());
             if (perDoJogador.isArmaduraVerificador()) {
                 System.out.println(perDoJogador.getArmadura());
@@ -262,7 +262,5 @@ public class Ficha {
         } while (!perDoJogador.isArmaduraVerificador());
 
         perDoJogador.listaFinalItens();
-
-        //TESTAR ESSA ÚLTIMA PARTE CODADA PRA VER SE FICOU AS PAMPAS
     }
 }

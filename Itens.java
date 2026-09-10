@@ -306,7 +306,7 @@ public class Itens extends Classe{
             System.out.println("Maravilha! Você escolheu todos os seus itens, sendo eles:" +
                     "\n(1) Uma mochila" +
                     "\n(1) Um saco de dormir" +
-                    "\n(1) Um traje de viajanta" +
+                    "\n(1) Um traje de viajante" +
                     "\n(1) " + armaSimplesEscolhida +
                     "\n(1) " + armaMarcialEscolhida +
                     "\n(1) " + armaDuraEscolhida
@@ -323,7 +323,6 @@ public class Itens extends Classe{
             );
         }
     }
-
 }
 
 
