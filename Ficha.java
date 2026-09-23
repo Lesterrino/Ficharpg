@@ -13,6 +13,10 @@ public class Ficha {
 
         Scanner Usuario = new Scanner(System.in);
 
+        ArrayList <String> tamanho = new ArrayList<>();
+        tamanho.add("lola");
+
+        System.out.println(tamanho.size());
         System.out.println("Olá! Seja bem vindo(a) ao seu criador de ficha de RPG.");
         System.out.println("\nPrimeiro vamos decidir qual será a raça" +
                 " do seu personagem.");
@@ -262,5 +266,44 @@ public class Ficha {
         } while (!perDoJogador.isArmaduraVerificador());
 
         perDoJogador.listaFinalItens();
+
+        ArrayList <String> listaEscolaDigitada = new ArrayList<>();
+        String digitarEscola;
+
+        if (perDoJogador.getClasseDoJogador().equals("bardo")) {
+            perDoJogador.listaEscolasMagia();
+            for (int escolaContador = 0; escolaContador < 3; escolaContador++) {
+                digitarEscola = Usuario.nextLine().toLowerCase();
+                perDoJogador.setEscolhaEscolaMagiaLeitor(digitarEscola);
+                perDoJogador.escolhaEscolaMagia(perDoJogador.getEscolhaEscolaMagiaLeitor());
+                if (!perDoJogador.escolaValida ||
+                        listaEscolaDigitada.contains(perDoJogador.getEscolhaEscolaMagia())) {
+                    escolaContador--;
+                    System.out.println("Digite uma escola válida e que não seja repetida!");
+                } else if (escolaContador < 2) {
+                    listaEscolaDigitada.add(perDoJogador.getEscolhaEscolaMagia());
+                    System.out.println("Prossiga escolhendo as demais escolas");
+                } else {
+                    listaEscolaDigitada.add(perDoJogador.getEscolhaEscolaMagia());
+                }
+            }
+            System.out.println(listaEscolaDigitada);
+
+            String magiaLeitor;
+            perDoJogador.magiasEscolasMensagem();
+            while (perDoJogador.getMagiaQuantidade() < 2) {
+                magiaLeitor = Usuario.nextLine().toLowerCase();
+                perDoJogador.setMagia(magiaLeitor);
+                perDoJogador.magias2(perDoJogador.getMagia());
+            }
+
+            System.out.println("Você possui as magias: " + perDoJogador.magiaJogador);
+
+            /*Próximo passo é fazer a lógica dentro de Magias.java que mostre a lista de magias
+            Apenas das escolas que foram escolhidas para que o jogador possa digitar e selecionar
+            só duas magias e ganhar elas. Mas toda essa parte seria melhor localizada lá em cima,
+            depois que o usuário escolheu a classe bardo
+             */
+        }
     }
 }

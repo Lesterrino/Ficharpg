@@ -372,5 +372,4 @@ public class Pericia extends Itens{
                 "\nMisticismo  - Nobreza  -  Percepção  -  Pontaria" +
                 "\n       Religião         -         Vontade       ");
     }
-
 }
