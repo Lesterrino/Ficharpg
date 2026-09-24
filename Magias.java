@@ -139,93 +139,93 @@ public class Magias extends Origem{
     public void magiasEscolasMensagem() {
         if (abjuracaoValida){
             System.out.println("\nVocê pode aprender as seguintes magias da escola Abjuração:" +
-                    "\nAlarme - Armadura Arcana - Resistência a Energia - Tranca Arcana\n");
+                    "\nAlarme - Armadura Arcana - Resistência a Energia - Tranca Arcana");
         } if (adivinhacaoValida) {
             System.out.println("\nVocê pode aprender as seguintes magias da escola Adivinhação:" +
-                    "\nAviso - Compreensão - Concentração - Visão Mística\n");
+                    "\nAviso - Compreensão - Concentração - Visão Mística");
         } if (convocacaoValida) {
             System.out.println("\nVocê pode aprender as seguintes magias da escola Convocação:" +
-                    "\nÁrea escorregadia - Conjurar monstro - Névoa - Teia\n");
+                    "\nÁrea escorregadia - Conjurar monstro - Névoa - Teia");
         } if (encantamentoValida) {
             System.out.println("\nVocê pode aprender as seguintes magias da escola Encantamento:" +
-                    "\nAdaga Mental - Enfeitiçar - Hipnotismo - Sono\n");
+                    "\nAdaga Mental - Enfeitiçar - Hipnotismo - Sono");
         } if (evocacaoValida) {
             System.out.println("\nVocê pode aprender as seguintes magias da escola Evocação:" +
-                    "\nExplosão de chama - Luz - Seta infalível de Talude - Toque chocante\n");
+                    "\nExplosão de chama - Luz - Seta infalível de Talude - Toque chocante");
         } if (ilusaoValida) {
             System.out.println("\nVocê pode aprender as seguintes magias da escola Ilusão:" +
-                    "\nCriar ilusão - Disfarce ilusório - Imagem espelhada - Leque cromático\n");
+                    "\nCriar ilusão - Disfarce ilusório - Imagem espelhada - Leque cromático");
         } if (necromanciaValida) {
             System.out.println("\nVocê pode aprender as seguintes magias da escola Necromância:" +
-                    "\nAmedrontar - Escuridão - Raio do enfraquecimento - Vitalidade fantasma\n");
+                    "\nAmedrontar - Escuridão - Raio do enfraquecimento - Vitalidade fantasma");
         } if (transmutacaoValida) {
             System.out.println("\nVocê pode aprender as seguintes magias da escola Transutação" +
-                    "\nArma mágica - Primor Atlético - Queda suave - Transmutar objetos\n");
+                    "\nArma mágica - Primor Atlético - Queda suave - Transmutar objetos");
         }
-        System.out.println("\n\nLembre-se: Escolha apenas DUAS magias dentre todas" +
+        System.out.println("\nLembre-se: Escolha apenas DUAS magias dentre todas" +
                 " as opções disponíveis acima!");
     }
 
     public void magias2(String magia) {
         switch (magia) {
             case "alarme", "armadura arcana", "resistencia a energia", "tranca arcana":
-                if (abjuracaoValida) {
+                if (abjuracaoValida && !magiaJogador.contains(magia)) {
                     magiaJogador.add(magia);
                 } else {
-                    System.out.println("\nDigite uma magia das escolas que você escolheu!!!");
+                    System.out.println("\nDigite uma magia das escolas que você escolheu e sem repetição!!!");
                 }
                 break;
             case "aviso", "compreensao", "concentracao", "visao mistica":
-                if (adivinhacaoValida) {
+                if (adivinhacaoValida && !magiaJogador.contains(magia)) {
                     magiaJogador.add(magia);
                 } else {
-                    System.out.println("\nDigite uma magia das escolas que você escolheu!!!");
+                    System.out.println("\nDigite uma magia das escolas que você escolheu e sem repetição!!!");
                 }
                 break;
             case "area escorregadia", "conjurar monstro", "nevoa", "teia":
-                if (convocacaoValida) {
+                if (convocacaoValida && !magiaJogador.contains(magia)) {
                     magiaJogador.add(magia);
                 } else {
-                    System.out.println("\nDigite uma magia das escolas que você escolheu!!!");
+                    System.out.println("\nDigite uma magia das escolas que você escolheu e sem repetição!!!");
                 }
                 break;
             case "adaga mental", "enfeiticar", "hipnotismo", "sono":
-                if (encantamentoValida) {
+                if (encantamentoValida && !magiaJogador.contains(magia)) {
                     magiaJogador.add(magia);
                 } else {
-                    System.out.println("\nDigite uma magia das escolas que você escolheu!!!");
+                    System.out.println("\nDigite uma magia das escolas que você escolheu e sem repetição!!!");
                 }
                 break;
             case "explosao de chama", "luz", "seta infalivel", "toque chocante":
-                if (evocacaoValida) {
+                if (evocacaoValida && !magiaJogador.contains(magia)) {
                     magiaJogador.add(magia);
                 } else {
-                    System.out.println("\nDigite uma magia das escolas que você escolheu!!!");
+                    System.out.println("\nDigite uma magia das escolas que você escolheu e sem repetição!!!");
                 }
                 break;
             case "criar ilusao", "disfarce ilusorio", "imagem espelhada", "leque cromatico":
-                if (ilusaoValida) {
+                if (ilusaoValida && !magiaJogador.contains(magia)) {
                     magiaJogador.add(magia);
                 } else {
-                    System.out.println("\nDigite uma magia das escolas que você escolheu!!!");
+                    System.out.println("\nDigite uma magia das escolas que você escolheu e sem repetição!!!");
                 }
                 break;
             case "amedrontar", "escuridao", "raio do enfraquecimento", "vitalidade fantasma":
-                if (necromanciaValida) {
+                if (necromanciaValida && !magiaJogador.contains(magia)) {
                     magiaJogador.add(magia);
                 } else {
-                    System.out.println("\nDigite uma magia das escolas que você escolheu!!!");
+                    System.out.println("\nDigite uma magia das escolas que você escolheu e sem repetição!!!");
                 }
                 break;
             case "arma magica", "primor atletico", "queda suave", "transmutar objetos":
-                if (transmutacaoValida) {
+                if (transmutacaoValida && !magiaJogador.contains(magia)) {
                     magiaJogador.add(magia);
                 } else {
-                    System.out.println("\nDigite uma magia das escolas que você escolheu!!!");
+                    System.out.println("Digite uma magia das escolas que você escolheu e sem repetição!!!");
                 }
                 break;
             default:
-                System.out.println("\nDigite corretamente a magia desejada!!!");
+                System.out.println("Digite corretamente a magia desejada!!!");
         }
         magiaQuantidade = magiaJogador.size();
     }

@@ -169,17 +169,20 @@ public class Ficha {
                 periciaEscolhida = Usuario.nextLine().toLowerCase();
                 perDoJogador.setPericiaSwitch(periciaEscolhida);
                 perDoJogador.bonusPericia(perDoJogador.getPericiaSwitch());
-                if (!perDoJogador.isPericiaValida() || periciasEscolhidas.contains(periciaEscolhida)) {
+                if (!perDoJogador.isPericiaValida()) {
+                    contador -= 1;
+                } else if (periciasEscolhidas.contains(periciaEscolhida)) {
                     contador -= 1;
                     System.out.println("Digite uma perícia da lista e que não seja repetida!");
                 } else if (contador < 7) {
                         periciasEscolhidas.add(periciaEscolhida);
                         System.out.println("Prossiga escolhendo as demais perícias da lista.");
-                    } else {
-                        System.out.println("Você escolheu suas 8 perícias." +
-                                "\nA seguir mostramos a lista de todas as perícias que você possui:");
-                        periciasEscolhidas.add("ladinagem");
-                        periciasEscolhidas.add("reflexos");
+                } else {
+                    periciasEscolhidas.add(periciaEscolhida);
+                    System.out.println("Você escolheu suas 8 perícias." +
+                            "\nA seguir mostramos a lista de todas as perícias que você possui:");
+                    periciasEscolhidas.add("ladinagem");
+                    periciasEscolhidas.add("reflexos");
                 }
             }
         } else if (perDoJogador.getClasseDoJogador().equals("bardo")) {
@@ -188,17 +191,20 @@ public class Ficha {
                 periciaEscolhida = Usuario.nextLine().toLowerCase();
                 perDoJogador.setPericiaSwitch(periciaEscolhida);
                 perDoJogador.bonusPericia(perDoJogador.getPericiaSwitch());
-                if (!perDoJogador.isPericiaValida() || periciasEscolhidas.contains(periciaEscolhida)) {
+                if (!perDoJogador.isPericiaValida()) {
+                    contador -= 1;
+                } else if (periciasEscolhidas.contains(periciaEscolhida)) {
                     contador -= 1;
                     System.out.println("Digite uma perícia da lista e que não seja repetida!");
                 } else if (contador < 5) {
                         periciasEscolhidas.add(periciaEscolhida);
                         System.out.println("Prossiga escolhendo as demais perícias da lista.");
-                    } else {
-                        System.out.println("Você escolheu suas 6 perícias." +
-                                "\nA seguir mostramos a lista de todas as perícias que você possui:");
-                        periciasEscolhidas.add("atuacao");
-                        periciasEscolhidas.add("reflexos");
+                } else {
+                    periciasEscolhidas.add(periciaEscolhida);
+                    System.out.println("Você escolheu suas 6 perícias." +
+                            "\nA seguir mostramos a lista de todas as perícias que você possui:");
+                    periciasEscolhidas.add("atuacao");
+                    periciasEscolhidas.add("reflexos");
                 }
             }
         } else if (perDoJogador.getClasseDoJogador().equals("barbaro")) {
@@ -207,18 +213,21 @@ public class Ficha {
                 periciaEscolhida = Usuario.nextLine().toLowerCase();
                 perDoJogador.setPericiaSwitch(periciaEscolhida);
                 perDoJogador.bonusPericia(perDoJogador.getPericiaSwitch());
-                if (!perDoJogador.isPericiaValida() || periciasEscolhidas.contains(periciaEscolhida)) {
+                if (!perDoJogador.isPericiaValida()) {
+                    contador -= 1;
+                } else if (periciasEscolhidas.contains(periciaEscolhida)) {
                     contador -= 1;
                     System.out.println("Digite uma perícia da lista e que não seja repetida!");
                 } else if (contador < 3) {
                         periciasEscolhidas.add(periciaEscolhida);
                         System.out.println("Prossiga escolhendo as demais perícias da lista.");
                 } else {
-                        System.out.println("Você escolheu suas 4 perícias." +
-                                "\nA seguir mostramos a lista de todas as perícias que você possui:");
-                        periciasEscolhidas.add(periciaEscolhida);
-                        periciasEscolhidas.add("fortitude");
-                        periciasEscolhidas.add("luta");
+                    periciasEscolhidas.add(periciaEscolhida);
+                    System.out.println("Você escolheu suas 4 perícias." +
+                            "\nA seguir mostramos a lista de todas as perícias que você possui:");
+                    periciasEscolhidas.add(periciaEscolhida);
+                    periciasEscolhidas.add("fortitude");
+                    periciasEscolhidas.add("luta");
                 }
             }
         }
@@ -240,7 +249,6 @@ public class Ficha {
         } while (!perDoJogador.isArmaSimplesVerificador());
 
         if (perDoJogador.getClasseDoJogador().equals("ladino")) {
-
         } else {
             perDoJogador.armaMarcialMensagem();
             do {
@@ -276,18 +284,19 @@ public class Ficha {
                 digitarEscola = Usuario.nextLine().toLowerCase();
                 perDoJogador.setEscolhaEscolaMagiaLeitor(digitarEscola);
                 perDoJogador.escolhaEscolaMagia(perDoJogador.getEscolhaEscolaMagiaLeitor());
-                if (!perDoJogador.escolaValida ||
-                        listaEscolaDigitada.contains(perDoJogador.getEscolhaEscolaMagia())) {
+                if (!perDoJogador.escolaValida) {
                     escolaContador--;
-                    System.out.println("Digite uma escola válida e que não seja repetida!");
+                } else if (listaEscolaDigitada.contains(perDoJogador.getEscolhaEscolaMagia())) {
+                        System.out.println("Digite uma escola válida e que não seja repetida!");
+                    escolaContador--;
                 } else if (escolaContador < 2) {
                     listaEscolaDigitada.add(perDoJogador.getEscolhaEscolaMagia());
                     System.out.println("Prossiga escolhendo as demais escolas");
                 } else {
                     listaEscolaDigitada.add(perDoJogador.getEscolhaEscolaMagia());
+                    System.out.println(listaEscolaDigitada);
                 }
             }
-            System.out.println(listaEscolaDigitada);
 
             String magiaLeitor;
             perDoJogador.magiasEscolasMensagem();
@@ -299,11 +308,6 @@ public class Ficha {
 
             System.out.println("Você possui as magias: " + perDoJogador.magiaJogador);
 
-            /*Próximo passo é fazer a lógica dentro de Magias.java que mostre a lista de magias
-            Apenas das escolas que foram escolhidas para que o jogador possa digitar e selecionar
-            só duas magias e ganhar elas. Mas toda essa parte seria melhor localizada lá em cima,
-            depois que o usuário escolheu a classe bardo
-             */
         }
     }
 }
