@@ -166,6 +166,10 @@ public class Magias extends Origem{
                 " as opções disponíveis acima!");
     }
 
+    /*
+    Switch feito para verificar se a magia digitada com o usuário condiz com alguma escola de magia que ele selecionou
+    e evita que ele repita magias ou que o mesmo digite algo incoerente
+    */
     public void magias2(String magia) {
         switch (magia) {
             case "alarme", "armadura arcana", "resistencia a energia", "tranca arcana":
@@ -203,7 +207,7 @@ public class Magias extends Origem{
                     System.out.println("\nDigite uma magia das escolas que você escolheu e sem repetição!!!");
                 }
                 break;
-            case "criar ilusao", "disfarce ilusorio", "imagem espelhada", "leque cromatico":
+            case "criar ilusao", "disfarse ilusorio", "imagem espelhada", "leque cromatico":
                 if (ilusaoValida && !magiaJogador.contains(magia)) {
                     magiaJogador.add(magia);
                 } else {

@@ -93,6 +93,7 @@ public class Itens extends Classe{
         this.leitorItem = leitorItem;
     }
 
+
     public void mensagemItensPrimarios() {
         System.out.println("\nAgora vamos ver quais itens irão lhe acompanhar nessa jornada" +
                             "\ne quais itens você poderá escolher para lhe acompanharem.\n" +
@@ -292,6 +293,7 @@ public class Itens extends Classe{
                 armaduraVerificador = false;
         }
     }
+
 
     public void listaFinalItens() {
         if (classeDoJogador.equals("ladino")) {

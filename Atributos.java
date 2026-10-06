@@ -91,6 +91,7 @@ public class Atributos extends Pericia {
         this.pontosDeAtributos = pontosDeAtributos;
     }
 
+    //método usado pra definir qual atributo será lido pelo setPontoAntes
     public int getPontoAntes(String nomeAtributo) {
         switch(nomeAtributo.toLowerCase()) {
             case "forca":
@@ -110,6 +111,9 @@ public class Atributos extends Pericia {
         }
     }
 
+    /*método usado para definir valores dentro de uma variável que garante que o jogador possa definir valores de um
+    atributo que ele já digitou, impedindo que ele acumule pontos de compra negativos ou positivos
+    */
     public void setPontoAntes(String nomeAtributo, int pontoAntes) {
         switch(nomeAtributo.toLowerCase()) {
             case "forca":
@@ -134,6 +138,9 @@ public class Atributos extends Pericia {
         }
     }
 
+    /*
+    método que reconhece qual atributo o usuário quer definir
+     */
     public void avaliarAtributoDigitado(String nomeAtributo) {
         switch (nomeAtributo.trim().toLowerCase()) {
             case "força", "forca", "forsa", "strenght", "for":
@@ -183,17 +190,23 @@ public class Atributos extends Pericia {
         }
     }
 
+    /*
+    A lógica para o método abaixo consiste em o programa reconhecer o atributo que foi digitado pelo jogador
+    definir os valores do atributo digitado, o modificador e retornar quantos pontos ainda lhe restam para
+    comprar mais valores para os demais atributos
+     */
     public void definirAtributo(String nomeAtributo, int valorAtributo) {
         if (nomeAtributo.equals("forca")) {
-            setForca2(0);
-            setForca2(getForca() + valorAtributo);
-            setModForca(Math.floorDiv(getForca2() - 10, 2));
+            setForca2(0); //Evita que os valores de Forca2 se acumulem caso seja digitado novamente
+            setForca2(getForca() + valorAtributo); //Define o atributo conforme o que o usuário digitou
+            setModForca(Math.floorDiv(getForca2() - 10, 2)); //Definição do modificador do atributo
             System.out.println(valorAtributo + " + seu bônus de classe = " +
                     getForca2() + "(" + getModForca() + ")");
-            avaliacaoDefinirAtributo = true;
-            avaliacaoAtributo = false;
-            pontosDeAtributos += custoDePontos - forcaAntes;
-            forcaAntes = custoDePontos;
+            avaliacaoDefinirAtributo = true; //permite passar para a próxima etapa
+            avaliacaoAtributo = false; //loop reconhecerá que vai precisar executar novamente o avaliarAtributoDigitado
+            pontosDeAtributos += custoDePontos - forcaAntes; //atualização dos pontos de atributos
+            forcaAntes = custoDePontos; //com esse cálculo os pontos de atributos retornam ao padrão caso o usuário
+                                        //digite esse atributo novamente
         } else if (nomeAtributo.equals("destreza")) {
             setDestreza2(0);
             setDestreza2(getDestreza() + valorAtributo);
@@ -249,6 +262,7 @@ public class Atributos extends Pericia {
         }
     }
 
+    //avalia se todos os atributos foram preenchidos pelo usuário
     public void proximaEtapa() {
         if (forca2 > 4 && destreza2 > 4 && constituicao2 > 4 &&
                 sabedoria2 > 4 && inteligencia2 > 4 && carisma2 > 4) {
@@ -268,6 +282,7 @@ public class Atributos extends Pericia {
         System.out.println("Carisma: " + getCarisma2() + "(" + getModCarisma() + ")");
     }
 
+    //Calculo do custo de pontos a depender do valor digitado pelo usuário
     public void calculoCustoDePontos() {
         try {
             valorIntAtributo = Integer.parseInt(valorStringAtributo);
@@ -296,6 +311,7 @@ public class Atributos extends Pericia {
         }
     }
 
+    //método onde se condensam outros métodos digitados acima
     public void compraDePontos() {
         pontoAntes = getPontoAntes(nomeAtributo);
         if (pontosDeAtributos + custoDePontos >= 0) {

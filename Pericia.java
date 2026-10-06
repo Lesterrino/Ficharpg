@@ -52,6 +52,11 @@ public class Pericia extends Itens{
         this.periciaValida = periciaValida;
     }
 
+    /*
+    O switch de perícias é responsável por reconhecer a perícia digitada pelo usuário e evitar que o mesmo digite
+    uma perícia que ele já tem, uma perícia que ele não pode ter ou caso ele digite algo incoerente. Foi a maneira como
+    encontramos de que cada perícia fosse avaliada de maneira exclusiva obedecendo aos critérios que estabelecemos.
+     */
     public void bonusPericia(String periciaSwitch) {
         switch(periciaSwitch) {
             case "acrobacia":
@@ -322,6 +327,7 @@ public class Pericia extends Itens{
                 "para seu personagem e lhe ajudarão durante a jornada");
     }
 
+    //Perícias relativas à classe
     public void ladino() {
         ladinoBase();
         ladinagem += 2;

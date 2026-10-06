@@ -1,6 +1,6 @@
 package Rpg;
 
-public class Origem extends Personagem {
+public class Origem extends Panteao {
 
     protected String alquimista = "Frascos vazios, pinças, reagentes básicos e bico de respiração";
     protected String carpinteiro = "Um martelo, pregos e um serrote";
