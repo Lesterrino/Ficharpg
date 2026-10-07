@@ -22,6 +22,7 @@ public class Personagem {
     protected int inteligencia2;
     protected int carisma2;
     protected String racaPersonagem;
+    protected String continuar = null;
 
     public Personagem(String raca, int deslocamento, int cd, int pv, int pm) {
         this.raca = raca;
@@ -185,6 +186,14 @@ public class Personagem {
         this.racaPersonagem = racaPersonagem;
     }
 
+    public String getContinuar() {
+        return continuar;
+    }
+
+    public void setContinuar(String continuar) {
+        this.continuar = continuar;
+    }
+
     public void atributosHumano(){
         this.pontosDeAtributos += 2;
     }
@@ -199,5 +208,9 @@ public class Personagem {
         this.constituicao += 4;
         this.sabedoria += 2;
         this.destreza -= 2;
+    }
+
+    public void prosseguir() {
+        System.out.println("\nDigite qualquer coisa para continuar.");
     }
 }

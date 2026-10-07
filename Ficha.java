@@ -13,6 +13,7 @@ public class Ficha {
         //Instanciamento do objeto(perDoJogador) que usaremos para executar todos os métodos de Ficha
         Atributos perDoJogador = new Atributos();
         Scanner Usuario = new Scanner(System.in);
+        String digiteParaContinuar;
 
         System.out.println("Olá! Seja bem-vindo(a) ao seu criador de ficha de RPG.");
         System.out.println("\nPrimeiro vamos decidir qual será a raça do seu personagem.");
@@ -66,6 +67,10 @@ public class Ficha {
          */
 
         System.out.println("Seu personagem é um... " + raca + "!!!");
+
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
+
         System.out.println("\nAgora você irá escolher qual a sua classe!");
         System.out.println("Ela definirá suas habilidades, pontos de vida, pontos de mana e estilo de jogo.");
         System.out.println("\nPense em como você pretende jogar e digite uma das opções abaixo:");
@@ -85,7 +90,7 @@ public class Ficha {
                     perDoJogador.bardoBase();
                     classeEscolhida = true;
                     break;
-                case "ladino", "ladinho", "Rogue", "Thief":
+                case "ladino", "ladinho", "rogue", "thief":
                     perDoJogador.ladinoBase();
                     classeEscolhida = true;
                     break;
@@ -94,6 +99,9 @@ public class Ficha {
             }
             System.out.println("A classe escolhida foi... " + classe + "!!!");
         }
+
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
 
         System.out.println("\nAgora nós vamos determinar seus pontos de atributos!!!");
         System.out.println("Digite um número entre 8 e 18 para cada um dos seus atributos");
@@ -131,6 +139,9 @@ public class Ficha {
 
         perDoJogador.exibirAtributos();
 
+
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
         String digitarOrigem = "";
         String digitarOficio;
         String digitarCriminoso;
@@ -182,6 +193,9 @@ public class Ficha {
                 digitarOrigem = Usuario.nextLine().toLowerCase();
             }
         }
+
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
 
         String periciaEscolhida;
         perDoJogador.periciasIntroducao();
@@ -267,7 +281,11 @@ public class Ficha {
 
         System.out.println(periciasEscolhidas);
 
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
         perDoJogador.mensagemItensPrimarios();
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
         perDoJogador.armaSimplesMensagem();
         String digitarItem = "";
 
@@ -285,6 +303,8 @@ public class Ficha {
             }
         } while (!perDoJogador.isArmaSimplesVerificador());
 
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
 
         if (perDoJogador.getClasseDoJogador().equals("ladino")) {
             /*
@@ -305,6 +325,9 @@ public class Ficha {
             } while (!perDoJogador.isArmaMarcialVerificador());
         }
 
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
+
         perDoJogador.armaduraMensagem();
         do {
             digitarItem = Usuario.nextLine().toLowerCase();
@@ -318,6 +341,8 @@ public class Ficha {
 
         perDoJogador.listaFinalItens();
 
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
         ArrayList <String> listaEscolaDigitada = new ArrayList<>();
         String digitarEscola;
 
@@ -363,7 +388,8 @@ public class Ficha {
             System.out.println("Você possui as magias: " + perDoJogador.magiaJogador);
             }
 
-
+        perDoJogador.prosseguir();
+        digiteParaContinuar = Usuario.nextLine();
         String deusesLeitor;
         perDoJogador.listaDeuses();
         System.out.println("\nDigite o nome do deus a quem deseja servir ou digite \"nenhum\" caso não queira" +
