@@ -1,3 +1,4 @@
+//Esta é a classe main!!!
 package Rpg;
 import com.sun.source.util.SourcePositions;
 
